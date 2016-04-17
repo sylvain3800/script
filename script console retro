@@ -1,0 +1,29 @@
+#instalation du ppa retroarch/testing
+
+sudo add-apt-repository ppa:libretro/testing
+
+sudo apt-get update 
+
+#listage des emulateurs à installer :
+
+PAQUETS="libretro-fba libretro-fba-cps1 libretro-fba-cps2 libretro-fba-neogeo libretro-fceumm libretro-genesisplusgx libretro-mame libretro-mednafen-psx libretro-mess libretro-mupen64plus libretro-nestopialibretro-snes9x libretro-yabause retroarch" 
+
+# récuperation d'emulationstation
+wget https://github.com/Aloshi/EmulationStation/archive/unstable.zip
+
+#dézipage
+unzip unstable.zip
+
+#listage  des dependances pour emulationstation
+PAQUETS=$PAQUETS" libsdl2-dev libsdl2-mixer-dev libboost-system-dev libboost-filesystem-dev libboost-date-time-dev libboost-locale-dev libboost-regex-dev libboost-thread-dev libfreeimage-dev libfreetype6-dev libeigen3-dev libcurl4-openssl-dev libasound2-dev libgl1-mesa-dev build-essential cmake"
+#instalation des paquets
+sudo apt-get update
+sudo apt-get install $PAQUETS
+
+#compilation d'emulationstation
+cd EmulationStation-unstable/
+cmake .
+make
+
+
+  
